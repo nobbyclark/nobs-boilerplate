@@ -64,10 +64,11 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= config.app %>/{,*/}*.html',
+          '<%= config.app %>/template/{,*/}*.hbs',
           '.tmp/styles/{,*/}*.css',
           '<%= config.app %>/images/{,*/}*'
-        ]
+        ],
+        tasks: ['assemble']
       }
     },
 
