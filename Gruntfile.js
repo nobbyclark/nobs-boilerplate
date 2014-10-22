@@ -10,6 +10,9 @@
 
 module.exports = function (grunt) {
 
+  // Loas assemble.io
+  grunt.loadNpmTasks('assemble' );
+
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
@@ -123,6 +126,25 @@ module.exports = function (grunt) {
         }]
       },
       server: '.tmp'
+    },
+
+    // Assemble IO
+    assemble: {
+      options: {
+        flatten: true,
+        layout: '<%= config.app %>/template/layouts/default.hbs',
+        partials: ['<%= config.app %>/template/partials/**/*.hbs'],
+      },
+      pages: {
+        files: {
+          '<%= config.app %>/': ['<%= config.app %>/template/pages/**/*.hbs']
+        }
+      },
+      index: {
+        files: {
+          '<%= config.app %>/': ['<%= config.app %>/template/pages/index.hbs']
+        }
+      }
     },
 
     // Make sure code styles are up to par and there are no obvious mistakes
@@ -388,6 +410,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'assemble',
       'wiredep',
       'concurrent:server',
       'autoprefixer',
@@ -418,6 +441,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'assemble',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
