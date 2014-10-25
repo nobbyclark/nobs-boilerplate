@@ -1,4 +1,4 @@
-template-static-site
+nobs-boilerplate
 ====================
 
 ```
