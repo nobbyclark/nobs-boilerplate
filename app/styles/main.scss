@@ -1,10 +1,28 @@
-$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
-// bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
-// endbower
+// fonts
+@import 'fonts/raleway';
 
-@import "fonts/raleway";
+// helpers
+@import 'helpers/variables';
+@import 'helpers/mixins';
+@import 'helpers/helpers';
 
-body {
-  font-family: 'Raleway';
-}
+// base
+@import 'base/normalize';
+@import 'base/base';
+@import 'base/typography';
+
+// components
+@import 'components/buttons';
+
+// layout
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/footer';
+
+// pages
+@import 'pages/index';
+@import 'pages/about';
+@import 'pages/contact';
+
+// theme
+@import 'themes/theme';
